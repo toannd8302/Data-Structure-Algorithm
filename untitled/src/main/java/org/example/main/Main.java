@@ -14,5 +14,22 @@ public class Main {
         myLinkList.append(1);
         myLinkList.getLength();
         myLinkList.printList();
+        //remove last node
+        myLinkList.removeLast();
+        myLinkList.getLength();
+        myLinkList.printList();
+        //remove all nodes
+        myLinkList.removeLast();
+        myLinkList.getLength(); // --> 0
+        myLinkList.getHead(); // --> null
+        myLinkList.getTail(); // --> null
+        myLinkList.printList();
+        //prepend 1 Node
+        myLinkList.append(1);
+        myLinkList.getLength();
+        myLinkList.printList();
+        myLinkList.prepend(2);
+        myLinkList.getLength();
+        myLinkList.printList();
     }
 }

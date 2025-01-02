@@ -33,12 +33,30 @@ public class LinkedList {
     //Get head
 
     public void getHead() {
-        System.out.println("Head: " + head.value);
+        try {
+            if (head == null) {
+                System.out.println("Head = null");
+            } else {
+                System.out.println("Head: " + head.value);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //Get tail
     public void getTail() {
-        System.out.println("Tail: " + tail.value);
+        try {
+            if (tail == null) {
+                System.out.println("Tail = null");
+            } else {
+                System.out.println("Tail: " + tail.value);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //Get length
@@ -46,15 +64,50 @@ public class LinkedList {
         System.out.println("Length: " + length);
     }
 
-    //append
+    //append -->  O(1)
     public void append(int value) {
         Node newNode = new Node(value);
         if (length == 0) {
             head = newNode;
             tail = newNode;
-        }else{
+        } else {
             tail.next = newNode; //pointer
             tail = newNode;
+        }
+        length++;
+    }
+
+    //Remove last node --> O(n)
+    public Node removeLast() {
+        //Empty LinkedList
+        if (length == 0) {
+            return null;
+        }
+        Node temp = head;
+        Node pre = head;
+        while (temp.next != null) {
+            pre = temp;
+            temp = temp.next;
+        }
+        tail = pre;
+        tail.next = null;
+        length--;
+        if (length == 0) {
+            head = null;
+            tail = null;
+        }
+        return temp;
+    }
+
+    //Prepend
+    public void prepend(int value) {
+        Node newNode = new Node(value);
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
         }
         length++;
     }
