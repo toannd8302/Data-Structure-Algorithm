@@ -31,5 +31,22 @@ public class Main {
         myLinkList.prepend(2);
         myLinkList.getLength();
         myLinkList.printList();
+        // remove first node
+        myLinkList.removeFirst();
+        myLinkList.getLength();
+        myLinkList.printList();
+//        myLinkList.removeFirst();
+//        myLinkList.getLength();
+//        myLinkList.printList();
+//        myLinkList.removeFirst();
+//        myLinkList.getLength();
+//        myLinkList.printList();
+        myLinkList.append(1);
+        myLinkList.append(2);
+        myLinkList.append(3);
+        myLinkList.printList();
+        myLinkList.getLength();
+        System.out.println(myLinkList.get(2).value);
+
     }
 }

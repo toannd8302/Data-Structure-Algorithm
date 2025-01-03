@@ -1,12 +1,14 @@
 package org.example.datastructure.imp;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList {
     private Node head;
     private Node tail;
     private int length;
 
-    class Node {
-        int value;
+    public class Node {
+        public int value;
         Node next;
 
         //Node value taking
@@ -110,5 +112,31 @@ public class LinkedList {
             head = newNode;
         }
         length++;
+    }
+
+    public Node removeFirst() {
+        if (length == 0) {
+            //throw new NoSuchElementException("The list is empty");
+            return null;
+        }
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
+        if (length == 0) {
+            tail = null;
+        }
+        return temp;
+    }
+
+    public Node get(int index) {
+        if (index < 0 || index >= length) {
+            return null;
+        }
+        Node temp = head;
+        for (int i = 0; i < length; i++) {
+            temp = temp.next; //(length - 1) lần
+        }
+        return temp;
     }
 }
