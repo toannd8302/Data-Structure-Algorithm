@@ -134,9 +134,22 @@ public class LinkedList {
             return null;
         }
         Node temp = head;
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < index; i++) {
             temp = temp.next; //(length - 1) lần
         }
         return temp;
+    }
+    // WRITE FIND MIDDLE NODE METHOD HERE //
+    public Node findMiddleNode(){
+        Node totoise = head;
+        Node hare = head;
+        while(hare != null && hare.next != null){
+            totoise = totoise.next;
+            hare = hare.next.next;
+            if(hare == totoise){
+                return totoise;
+            }
+        }
+        return totoise;
     }
 }
