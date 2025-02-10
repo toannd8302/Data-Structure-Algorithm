@@ -139,17 +139,54 @@ public class LinkedList {
         }
         return temp;
     }
+
     // WRITE FIND MIDDLE NODE METHOD HERE //
-    public Node findMiddleNode(){
-        Node totoise = head;
-        Node hare = head;
-        while(hare != null && hare.next != null){
-            totoise = totoise.next;
-            hare = hare.next.next;
-            if(hare == totoise){
-                return totoise;
-            }
+    public Node findMiddleNode() {
+        if (head == null) {
+            return null;
         }
-        return totoise;
+        Node tortoise = head;
+        Node hare = head;
+        while (hare != null && hare.next != null) {
+            tortoise = tortoise.next;
+            hare = hare.next.next;
+            if (tortoise == hare) return tortoise;
+        }
+        return tortoise;
+    }
+
+    public boolean hasLoop() {
+        if (head == null) {
+            return false;
+        }
+        Node tortoise = head;
+        Node hare = head;
+        while (hare != null && hare.next != null) {
+            tortoise = tortoise.next;
+            hare = hare.next.next;
+            if (tortoise == hare) return true;
+        }
+        return false;
+    }
+
+    public void createLoop(int position) {
+        //If linked list null => Not do anything
+        if (head == null) {
+            return;
+        }
+        Node temp = head;
+        Node loopNode = null;
+        int count = 1; // Start count at head to find the position
+        while(temp.next!=null){
+            if (count == position){
+                loopNode = temp;
+            }
+            temp = temp.next;
+            count++;
+            //if loop Node not Null => loop at position
+        }
+        if (loopNode!=null){
+            temp.next = loopNode;
+        }
     }
 }

@@ -53,7 +53,9 @@ public class Main {
         myLinkList.append(4);
         myLinkList.append(5);
         myLinkList.append(6);
-        myLinkList.append(7);
         System.out.println(myLinkList.findMiddleNode().value);
+        myLinkList.createLoop(3);
+        System.out.println( myLinkList.hasLoop());
+
     }
 }
