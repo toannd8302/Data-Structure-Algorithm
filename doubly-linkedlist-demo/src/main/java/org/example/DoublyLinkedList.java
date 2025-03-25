@@ -36,36 +36,61 @@ public class DoublyLinkedList {
         }
         length++;
     }
-    public void printList(){
+
+    public void printList() {
         Node tmp = head;
-        while(tmp != null){
+        while (tmp != null) {
             System.out.println(tmp.value);
             tmp = tmp.next;
         }
     }
-    public Node removeLast(){
+
+    public Node removeLast() {
         if (length == 0) return null;
         Node tmp = tail;
-        tail = tail.prev;
+        tail = tmp.prev;
         tail.next = null;
         tmp.prev = null;
         length--;
-        if (length == 0){
+        if (length == 0) {
             head = null;
             tail = null;
         }
         return tmp;
     }
+
     public void prepend(int vale) {
         Node newNode = new Node(vale);
-        if (length == 0){
+        if (length == 0) {
             head = newNode;
             tail = newNode;
-        }else{
+        } else {
             newNode.next = head;
             head.prev = newNode;
             head = newNode;
         }
         length++;
+    }
+
+    public Node removeFirst() {
+        Node temp = head;
+        if (length == 0) return null;
+        if (length == 1) {
+            head = null;
+            tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+            temp.next = null;
+        }
+        return temp;
+    }
+    public void swapFirstLast(){
+        if (length < 2) return;
+        else{
+            int temp = head.value;
+            head.value = tail.value;
+            tail.value = temp;
+        }
     }
 }

@@ -19,5 +19,12 @@ public class Main {
         mDLL1.prepend(3);
         System.out.println("After prepend value 3: ");
         mDLL1.printList();
+        //================================================================
+        DoublyLinkedList myDll2 = new DoublyLinkedList(2);
+        myDll2.append(3);
+        myDll2.append(4);
+        myDll2.removeFirst();
+        myDll2.swapFirstLast();
+        myDll2.printList();
     }
 }
